@@ -1,0 +1,50 @@
+CREATE TABLE restaurants (
+  restaurant_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  cuisine_type TEXT NOT NULL,
+  phone_number TEXT,
+  email TEXT,
+  street_address TEXT NOT NULL,
+  city TEXT NOT NULL,
+  state TEXT NOT NULL,
+  zip_code TEXT NOT NULL,
+  opening_time TEXT NOT NULL,
+  closing_time TEXT NOT NULL,
+  price_range TEXT,
+  has_delivery INTEGER NOT NULL DEFAULT 0,
+  has_reservations INTEGER NOT NULL DEFAULT 0,
+  rating REAL CHECK (rating >= 0 AND rating <= 5),
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO restaurants (
+  name,
+  cuisine_type,
+  phone_number,
+  email,
+  street_address,
+  city,
+  state,
+  zip_code,
+  opening_time,
+  closing_time,
+  price_range,
+  has_delivery,
+  has_reservations,
+  rating
+) VALUES (
+  'Whisker & Steam Cat Cafe',
+  'Cafe and Bakery',
+  '555-123-4567',
+  'hello@whiskerandsteam.com',
+  '123 Cozy Lane',
+  'Chicago',
+  'IL',
+  '60601',
+  '08:00',
+  '20:00',
+  '$$',
+  0,
+  1,
+  4.8
+);
